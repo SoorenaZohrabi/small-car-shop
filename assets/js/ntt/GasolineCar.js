@@ -1,6 +1,6 @@
-import { Car } from "./Car.js";
+import Car from "./Car.js";
 
-class GasolineCar extends Car {
+export default class GasolineCar extends Car {
     constructor(id, name, model, Class, color, price, fuelType, engineType, engineSize, fuelGrade) {
         super(id, name, model, Class, color, price);
         this.fuelType = fuelType;

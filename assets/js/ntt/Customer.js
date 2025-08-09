@@ -1,4 +1,4 @@
-import { User } from "./User.js";
+import User from "./User.js";
 
 export default class Customer extends User {
     constructor(id, firstName, lastName, username, email, password) {
