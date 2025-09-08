@@ -29,4 +29,42 @@
 .hero-section .hero-btn:hover {
   background-color: rgb(115, 158, 201);
   color: rgb(255, 232, 219);
+}
+
+.car-showcase {
+  background-color: rgb(255, 232, 219);
+}
+.car-showcase h2 {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+.car-showcase .car-card {
+  border: 1px solid rgb(115, 158, 201);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.car-showcase .car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-color: rgb(86, 130, 177);
+}
+.car-showcase .car-card .card-img-top {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.car-showcase .car-card .card-title {
+  color: rgb(86, 130, 177);
+  font-weight: 600;
+}
+.car-showcase .car-card .card-text {
+  color: rgb(0, 0, 0);
+  font-size: 0.95rem;
+}
+.car-showcase .car-card .btn-outline-primary {
+  border-color: rgb(86, 130, 177);
+  color: rgb(86, 130, 177);
+}
+.car-showcase .car-card .btn-outline-primary:hover {
+  background-color: rgb(86, 130, 177);
+  color: rgb(255, 232, 219);
 }/*# sourceMappingURL=style.css.map */
