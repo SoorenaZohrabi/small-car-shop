@@ -6,4 +6,27 @@
 }
 .custom-navbar .navbar-brand {
   font-weight: bold;
+}
+
+.hero-section {
+  background-color: rgb(255, 232, 219);
+  height: 100vh;
+  padding: 0 1rem;
+}
+.hero-section h1 {
+  color: rgb(0, 0, 0);
+}
+.hero-section p {
+  color: rgb(86, 130, 177);
+}
+.hero-section .hero-btn {
+  background-color: rgb(86, 130, 177);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+.hero-section .hero-btn:hover {
+  background-color: rgb(115, 158, 201);
+  color: rgb(255, 232, 219);
 }/*# sourceMappingURL=style.css.map */
