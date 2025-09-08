@@ -10,50 +10,27 @@
     <script type="module" src="./assets/js/app.js" defer></script>
 </head>
 
-<body class="bg-light">
+<body>
 
-    <div class="container py-5">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h4>Add New Company</h4>
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#">CarHub</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Cars</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Companies</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Reviews</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="#">Login</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="card-body">
-                <form id="companyForm" novalidate>
-                    <div class="mb-3">
-                        <label for="companyId" class="form-label">Company ID</label>
-                        <input type="text" class="form-control" id="companyId" required />
-                        <div class="invalid-feedback">Please enter a valid ID.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" id="companyName" required />
-                        <div class="invalid-feedback">Company name is required.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="companyAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="companyAddress" required />
-                        <div class="invalid-feedback">Address is required.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="companyTel" class="form-label">Telephone</label>
-                        <input type="tel" class="form-control" id="companyTel" pattern="\\d{7,15}" required />
-                        <div class="invalid-feedback">Enter a valid phone number (7–15 digits).</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="companyInfo" class="form-label">Info</label>
-                        <textarea class="form-control" id="companyInfo" rows="3" required></textarea>
-                        <div class="invalid-feedback">Please provide some info.</div>
-                    </div>
-                    <button type="submit" class="btn btn-success">Save Company</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="mt-4">
-            <h5>📋 Stored Companies</h5>
-            <ul id="companyList" class="list-group"></ul>
-        </div>
-    </div>
+        </nav>
+    </header>
 
 </body>
 

@@ -1,7 +1,18 @@
-.was-validated .form-control:invalid {
-    border-color: #dc3545;
-}
+$black: rgb(0, 0, 0);
+$primary-blue: rgb(86, 130, 177);
+$secondary-blue: rgb(115, 158, 201);
+$peach: rgb(255, 232, 219);
 
-.was-validated .form-control:valid {
-    border-color: #198754;
+.custom-navbar {
+    background-color: $primary-blue;
+
+    .nav-link {
+        &:hover {
+            color: $peach;
+        }
+    }
+
+    .navbar-brand {
+        font-weight: bold;
+    }
 }
