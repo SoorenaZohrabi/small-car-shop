@@ -1,13 +1,23 @@
 .custom-navbar {
   background-color: rgb(86, 130, 177);
 }
-
+.custom-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.custom-navbar .nav-link {
+  color: white;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
 .custom-navbar .nav-link:hover {
   color: rgb(255, 232, 219);
 }
-
-.custom-navbar .navbar-brand {
-  font-weight: bold;
+.custom-navbar .navbar-toggler {
+  border-color: white;
+}
+.custom-navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .hero-section {
@@ -15,15 +25,12 @@
   height: 100vh;
   padding: 0 1rem;
 }
-
 .hero-section h1 {
   color: rgb(0, 0, 0);
 }
-
 .hero-section p {
   color: rgb(86, 130, 177);
 }
-
 .hero-section .hero-btn {
   background-color: rgb(86, 130, 177);
   border: none;
@@ -31,7 +38,6 @@
   font-weight: 600;
   color: white;
 }
-
 .hero-section .hero-btn:hover {
   background-color: rgb(115, 158, 201);
   color: rgb(255, 232, 219);
@@ -40,44 +46,36 @@
 .car-showcase {
   background-color: rgb(255, 232, 219);
 }
-
 .car-showcase h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
 }
-
 .car-showcase .car-card {
   border: 1px solid rgb(115, 158, 201);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .car-showcase .car-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   border-color: rgb(86, 130, 177);
 }
-
 .car-showcase .car-card .card-img-top {
   height: 200px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
-
 .car-showcase .car-card .card-title {
   color: rgb(86, 130, 177);
   font-weight: 600;
 }
-
 .car-showcase .car-card .card-text {
   color: rgb(0, 0, 0);
   font-size: 0.95rem;
 }
-
 .car-showcase .car-card .btn-outline-primary {
   border-color: rgb(86, 130, 177);
   color: rgb(86, 130, 177);
 }
-
 .car-showcase .car-card .btn-outline-primary:hover {
   background-color: rgb(86, 130, 177);
   color: rgb(255, 232, 219);
@@ -86,38 +84,31 @@
 .company-directory {
   background-color: rgb(255, 232, 219);
 }
-
 .company-directory h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
 }
-
 .company-directory .company-card {
   border: 1px solid rgb(115, 158, 201);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .company-directory .company-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   border-color: rgb(86, 130, 177);
 }
-
 .company-directory .company-card .card-title {
   color: rgb(86, 130, 177);
   font-weight: 600;
 }
-
 .company-directory .company-card .card-text {
   color: rgb(0, 0, 0);
   font-size: 0.95rem;
 }
-
 .company-directory .company-card .btn-outline-primary {
   border-color: rgb(86, 130, 177);
   color: rgb(86, 130, 177);
 }
-
 .company-directory .company-card .btn-outline-primary:hover {
   background-color: rgb(86, 130, 177);
   color: rgb(255, 232, 219);
@@ -127,20 +118,15 @@
   background-color: rgb(0, 0, 0);
   color: rgb(255, 232, 219);
 }
-
 .site-footer p {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
-
 .site-footer .footer-link {
   color: rgb(115, 158, 201);
   text-decoration: none;
 }
-
 .site-footer .footer-link:hover {
   color: rgb(86, 130, 177);
   text-decoration: underline;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
