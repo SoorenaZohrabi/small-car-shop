@@ -129,4 +129,44 @@
 .site-footer .footer-link:hover {
   color: rgb(86, 130, 177);
   text-decoration: underline;
+}
+
+.login-page {
+  background-color: rgb(255, 232, 219);
+}
+.login-page .auth-tabs {
+  border: 1px solid rgb(115, 158, 201);
+}
+.login-page .auth-tabs .nav-tabs {
+  border-bottom: 1px solid rgb(115, 158, 201);
+}
+.login-page .auth-tabs .nav-tabs .nav-link {
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+}
+.login-page .auth-tabs .nav-tabs .nav-link.active {
+  background-color: rgb(86, 130, 177);
+  color: white;
+}
+.login-page .auth-tabs .nav-tabs .nav-link:hover {
+  color: rgb(115, 158, 201);
+}
+.login-page .auth-tabs label {
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+}
+.login-page .auth-tabs input {
+  border: 1px solid rgb(115, 158, 201);
+}
+.login-page .auth-tabs input:focus {
+  border-color: rgb(86, 130, 177);
+  box-shadow: 0 0 0 0.2rem rgba(86, 130, 177, 0.25);
+}
+.login-page .auth-tabs .btn-primary {
+  background-color: rgb(86, 130, 177);
+  border: none;
+}
+.login-page .auth-tabs .btn-primary:hover {
+  background-color: rgb(115, 158, 201);
+  color: rgb(255, 232, 219);
 }/*# sourceMappingURL=style.css.map */
