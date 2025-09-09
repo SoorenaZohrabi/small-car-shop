@@ -1,3 +1,23 @@
+.electric .card {
+  border-left: 5px solid green;
+}
+
+.gasoline .card {
+  border-left: 5px solid red;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.6em;
+}
+
+.empty-message {
+  text-align: center;
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
 .custom-navbar {
   background-color: rgb(86, 130, 177);
 }
@@ -43,75 +63,45 @@
   color: rgb(255, 232, 219);
 }
 
-.car-showcase {
-  background-color: rgb(255, 232, 219);
-}
-.car-showcase h2 {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-}
-.car-showcase .car-card {
+.card {
   border: 1px solid rgb(115, 158, 201);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.car-showcase .car-card:hover {
+.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   border-color: rgb(86, 130, 177);
 }
-.car-showcase .car-card .card-img-top {
+.card .card-img-top {
   height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.car-showcase .car-card .card-title {
+.card .card-title {
   color: rgb(86, 130, 177);
   font-weight: 600;
 }
-.car-showcase .car-card .card-text {
+.card .card-text {
   color: rgb(0, 0, 0);
   font-size: 0.95rem;
 }
-.car-showcase .car-card .btn-outline-primary {
+.card .btn-outline-primary {
   border-color: rgb(86, 130, 177);
   color: rgb(86, 130, 177);
 }
-.car-showcase .car-card .btn-outline-primary:hover {
+.card .btn-outline-primary:hover {
   background-color: rgb(86, 130, 177);
   color: rgb(255, 232, 219);
 }
 
+.car-showcase,
 .company-directory {
   background-color: rgb(255, 232, 219);
 }
+.car-showcase h2,
 .company-directory h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
-}
-.company-directory .company-card {
-  border: 1px solid rgb(115, 158, 201);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.company-directory .company-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  border-color: rgb(86, 130, 177);
-}
-.company-directory .company-card .card-title {
-  color: rgb(86, 130, 177);
-  font-weight: 600;
-}
-.company-directory .company-card .card-text {
-  color: rgb(0, 0, 0);
-  font-size: 0.95rem;
-}
-.company-directory .company-card .btn-outline-primary {
-  border-color: rgb(86, 130, 177);
-  color: rgb(86, 130, 177);
-}
-.company-directory .company-card .btn-outline-primary:hover {
-  background-color: rgb(86, 130, 177);
-  color: rgb(255, 232, 219);
 }
 
 .site-footer {
