@@ -1,43 +1,20 @@
-.electric .card {
-  border-left: 5px solid green;
-}
-
-.gasoline .card {
-  border-left: 5px solid red;
-}
-
-.badge {
-  font-size: 0.85rem;
-  padding: 0.4em 0.6em;
-}
-
-.empty-message {
-  text-align: center;
-  color: rgb(86, 130, 177);
-  font-weight: 500;
-  margin-top: 2rem;
-}
-
 .custom-navbar {
   background-color: rgb(86, 130, 177);
 }
-.custom-navbar .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+
+.login-btn .nav-link {
+  font-weight: 500;
 }
-.custom-navbar .nav-link {
-  color: white;
-  margin-left: 1rem;
-  transition: color 0.3s ease;
-}
-.custom-navbar .nav-link:hover {
+.login-btn .nav-link:hover {
   color: rgb(255, 232, 219);
 }
-.custom-navbar .navbar-toggler {
-  border-color: white;
-}
-.custom-navbar .navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+.user-profile .profile-img {
+  width: 32px;
+  height: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid white;
 }
 
 .hero-section {
@@ -61,6 +38,14 @@
 .hero-section .hero-btn:hover {
   background-color: rgb(115, 158, 201);
   color: rgb(255, 232, 219);
+}
+
+.electric .card {
+  border-left: 5px solid green;
+}
+
+.gasoline .card {
+  border-left: 5px solid red;
 }
 
 .card {
@@ -94,14 +79,21 @@
   color: rgb(255, 232, 219);
 }
 
-.car-showcase,
-.company-directory {
-  background-color: rgb(255, 232, 219);
+input {
+  border: 1px solid rgb(115, 158, 201);
 }
-.car-showcase h2,
-.company-directory h2 {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
+input:focus {
+  border-color: rgb(86, 130, 177);
+  box-shadow: 0 0 0 0.2rem rgba(86, 130, 177, 0.25);
+}
+
+.btn-primary {
+  background-color: rgb(86, 130, 177);
+  border: none;
+}
+.btn-primary:hover {
+  background-color: rgb(115, 158, 201);
+  color: rgb(255, 232, 219);
 }
 
 .site-footer {
@@ -145,56 +137,15 @@
   color: rgb(86, 130, 177);
   font-weight: 500;
 }
-.login-page .auth-tabs input {
-  border: 1px solid rgb(115, 158, 201);
-}
-.login-page .auth-tabs input:focus {
-  border-color: rgb(86, 130, 177);
-  box-shadow: 0 0 0 0.2rem rgba(86, 130, 177, 0.25);
-}
-.login-page .auth-tabs .btn-primary {
-  background-color: rgb(86, 130, 177);
-  border: none;
-}
-.login-page .auth-tabs .btn-primary:hover {
-  background-color: rgb(115, 158, 201);
-  color: rgb(255, 232, 219);
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.6em;
 }
 
-.user-profile .profile-img {
-  width: 32px;
-  height: 32px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: 2px solid white;
-}
-.user-profile .dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.empty-message {
+  text-align: center;
+  color: rgb(86, 130, 177);
   font-weight: 500;
-}
-.user-profile .dropdown-toggle:hover {
-  color: rgb(255, 232, 219);
-}
-.user-profile .dropdown-menu {
-  font-size: 0.9rem;
-}
-.user-profile .dropdown-menu .dropdown-item {
-  padding: 0.5rem 1rem;
-}
-.user-profile .dropdown-menu .dropdown-item:hover {
-  background-color: rgb(115, 158, 201);
-  color: white;
-}
-.user-profile .dropdown-menu .dropdown-item.text-danger:hover {
-  background-color: #ff3333;
-  color: white;
-}
-
-.login-btn .nav-link {
-  font-weight: 500;
-}
-.login-btn .nav-link:hover {
-  color: rgb(255, 232, 219);
+  margin-top: 2rem;
 }/*# sourceMappingURL=style.css.map */

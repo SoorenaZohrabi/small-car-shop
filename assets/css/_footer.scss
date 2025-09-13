@@ -1,0 +1,19 @@
+.site-footer {
+    background-color: $black;
+    color: $peach;
+
+    p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-link {
+        color: $secondary-blue;
+        text-decoration: none;
+
+        &:hover {
+            color: $primary-blue;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+input {
+    border: 1px solid $secondary-blue;
+
+    &:focus {
+        border-color: $primary-blue;
+        box-shadow: 0 0 0 0.2rem rgba(86, 130, 177, 0.25);
+    }
+}
+
+.btn-primary {
+    background-color: $primary-blue;
+    border: none;
+
+    &:hover {
+        background-color: $secondary-blue;
+        color: $peach;
+    }
+}

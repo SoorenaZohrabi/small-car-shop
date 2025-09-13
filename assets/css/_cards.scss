@@ -1,0 +1,43 @@
+.electric .card {
+    border-left: 5px solid green;
+}
+
+.gasoline .card {
+    border-left: 5px solid red;
+}
+
+.card {
+    border: 1px solid $secondary-blue;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        border-color: $primary-blue;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-title {
+        color: $primary-blue;
+        font-weight: 600;
+    }
+
+    .card-text {
+        color: $black;
+        font-size: 0.95rem;
+    }
+
+    .btn-outline-primary {
+        border-color: $primary-blue;
+        color: $primary-blue;
+
+        &:hover {
+            background-color: $primary-blue;
+            color: $peach;
+        }
+    }
+}
