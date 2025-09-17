@@ -9,14 +9,6 @@ function generateUUID() {
     });
 }
 
-// Check if users already exist
-if (!localStorage.getItem('users')) {
-    const initialUsers = [
-        new Customer(1, 'Soorena', 'Zohrabi', 'soor', 'soor@example.com', '1234'),
-    ];
-
-    saveData('users', initialUsers);
-}
 // for sign up
 document.getElementById('signup-tab').addEventListener('click', () => {
     document.getElementById('signup').querySelector('form').addEventListener('submit', function (e) {
@@ -29,6 +21,19 @@ document.getElementById('signup-tab').addEventListener('click', () => {
         const username = document.getElementById('signup-username').value.trim();
         const email = document.getElementById('signup-email').value.trim();
         const password = document.getElementById('signup-password').value.trim();
+
+        // validate if fields are empty
+        let errors = [];
+        if (!firstName) errors.push("First name is required.");
+        if (!lastName) errors.push("Last name is required.");
+        if (!username) errors.push("Username is required.");
+        if (!email) errors.push("Email is required.");
+        if (!password) errors.push("Password is required.");
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            // Optionally return false to prevent form submission
+            return false;
+        }
 
         // Create new user
         const users = loadData('users');
