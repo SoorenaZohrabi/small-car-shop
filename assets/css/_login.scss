@@ -1,30 +1,23 @@
 .login-page {
     background-color: $peach;
+    
+    .nav-link {
+        color: $primary-blue;
+        font-weight: 500;
 
-    .auth-tabs {
-        border: 1px solid $secondary-blue;
-
-        .nav-tabs {
-            border-bottom: 1px solid $secondary-blue;
-
-            .nav-link {
-                color: $primary-blue;
-                font-weight: 500;
-
-                &.active {
-                    background-color: $primary-blue;
-                    color: white;
-                }
-
-                &:hover {
-                    color: $secondary-blue;
-                }
-            }
+        &.active {
+            background-color: $primary-blue;
+            color: white;
         }
 
-        label {
-            color: $primary-blue;
-            font-weight: 500;
+        &:hover {
+            color: $secondary-blue;
         }
+    }
+
+
+    label {
+        color: $primary-blue;
+        font-weight: 500;
     }
 }

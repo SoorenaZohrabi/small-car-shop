@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="card-text"><strong>Address:</strong> ${c.address}</p>
                     <p class="card-text"><strong>Tel:</strong> ${c.tel}</p>
                     <p class="card-text">${c.info}</p>
-                    <a href="companycars.html?companyId=${c.id}" class="btn btn-outline-primary">View Cars</a>
+                    <a href="cars.html?companyId=${c.id}" class="btn btn-outline-primary">View Cars</a>
                 </div>
             </div>
         </div>

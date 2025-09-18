@@ -43,7 +43,7 @@ function renderPartnerCompanies() {
                 <div class="card-body">
                     <h5 class="card-title">${c.name}</h5>
                     <p class="card-text">${c.info}</p>
-                    <a href="companycars.html?companyId=${c.id}" class="btn btn-outline-primary">View Cars</a>
+                    <a href="cars.html?companyId=${c.id}" class="btn btn-outline-primary">View Cars</a>
                 </div>
             </div>
         </div>

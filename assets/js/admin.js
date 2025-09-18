@@ -10,60 +10,107 @@ function generateUUID() {
     });
 }
 
-// Add Company
-document.getElementById('companyForm').addEventListener('submit', e => {
-    e.preventDefault();
-
-    const id = generateUUID();
-    const name = document.getElementById('companyName').value.trim();
-    const address = document.getElementById('companyAddress').value.trim();
-    const tel = document.getElementById('companyTel').value.trim();
-    const info = document.getElementById('companyInfo').value.trim();
-
-    const companies = loadData('companies');
-    const newCompany = new Company(id, name, address, tel, info);
-    companies.push(newCompany);
-    saveData('companies', companies);
+// Initial Load
+document.addEventListener('DOMContentLoaded', () => {
+    const currentUser = loadData('currentUser');
+    if (!currentUser || currentUser.role !== "admin") {
+        alert("Access denied. Admins only.");
+        window.location.href = "./../index.html";
+        return;
+    }
 
     updateCompanyList();
+    updateCarList();
     updateCompanyDropdown();
-    e.target.reset();
 });
 
-// Add Car
+// Add or Edit Company
+document.getElementById('companyForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const form = e.target;
+    const id = form.dataset.editingId || generateUUID();
+    const name = form.companyName.value.trim();
+    const address = form.companyAddress.value.trim();
+    const tel = form.companyTel.value.trim();
+    const info = form.companyInfo.value.trim();
+
+    if (!name || !address || !tel || !info) return alert("All fields are required.");
+
+    let companies = loadData('companies');
+    if (form.dataset.editingId) {
+        const index = companies.findIndex(c => c.id === id);
+        companies[index] = new Company(id, name, address, tel, info);
+        delete form.dataset.editingId;
+    } else {
+        companies.push(new Company(id, name, address, tel, info));
+    }
+
+    saveData('companies', companies);
+    updateCompanyList();
+    updateCompanyDropdown();
+    form.reset();
+});
+
+// Add or Edit Car
 document.getElementById('carForm').addEventListener('submit', e => {
     e.preventDefault();
+    const form = e.target;
+    const id = form.dataset.editingId || generateUUID();
+    const name = form.carName.value.trim();
+    const model = form.carModel.value.trim();
+    const Class = form.carClass.value.trim();
+    const color = form.carColor.value.trim();
+    const price = form.carPrice.value.trim();
+    const companyId = form.carCompany.value;
 
-    const id = generateUUID();
-    const name = document.getElementById('carName').value.trim();
-    const model = document.getElementById('carModel').value.trim();
-    const Class = document.getElementById('carClass').value.trim();
-    const color = document.getElementById('carColor').value.trim();
-    const price = document.getElementById('carPrice').value.trim();
-    const companyId = document.getElementById('carCompany').value;
+    if (!name || !model || !Class || !color || !price || !companyId) return alert("All fields are required.");
 
-    const cars = loadData('cars');
-    const newCar = new Car(id, name, model, Class, color, price);
-    newCar.companyId = companyId;
-    cars.push(newCar);
+    let cars = loadData('cars');
+    if (form.dataset.editingId) {
+        const index = cars.findIndex(c => c.id === id);
+        const updatedCar = new Car(id, name, model, Class, color, price);
+        updatedCar.companyId = companyId;
+        cars[index] = updatedCar;
+        delete form.dataset.editingId;
+    } else {
+        const newCar = new Car(id, name, model, Class, color, price);
+        newCar.companyId = companyId;
+        cars.push(newCar);
+    }
+
     saveData('cars', cars);
-
     updateCarList();
-    e.target.reset();
+    form.reset();
 });
 
 // Render Company List
 function updateCompanyList() {
     const companies = loadData('companies');
     const list = document.getElementById('companyList');
-    list.innerHTML = companies.map(c => `<li class="list-group-item">${c.name} - ${c.address}</li>`).join('');
+    list.innerHTML = companies.map(c => `
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      ${c.name} - ${c.address}
+      <div>
+        <button class="btn btn-sm btn-warning me-2 edit-company" data-id="${c.id}">Edit</button>
+        <button class="btn btn-sm btn-danger delete-company" data-id="${c.id}">Delete</button>
+      </div>
+    </li>
+  `).join('');
 }
 
 // Render Car List
 function updateCarList() {
     const cars = loadData('cars');
     const list = document.getElementById('carList');
-    list.innerHTML = cars.map(c => `<li class="list-group-item">${c.name} (${c.model})</li>`).join('');
+    list.innerHTML = cars.map(c => `
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      ${c.name} (${c.model})
+      <div>
+        <button class="btn btn-sm btn-warning me-2 edit-car" data-id="${c.id}">Edit</button>
+        <button class="btn btn-sm btn-danger delete-car" data-id="${c.id}">Delete</button>
+      </div>
+    </li>
+  `).join('');
 }
 
 // Populate Company Dropdown
@@ -74,17 +121,53 @@ function updateCompanyDropdown() {
         companies.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
 }
 
-// Initial Load
-document.addEventListener('DOMContentLoaded', () => {
-    updateCompanyList();
-    updateCarList();
-    updateCompanyDropdown();
+// Delete Company
+document.getElementById('companyList').addEventListener('click', e => {
+    if (e.target.classList.contains('delete-company')) {
+        const id = e.target.dataset.id;
+        const companies = loadData('companies').filter(c => c.id !== id);
+        saveData('companies', companies);
+        updateCompanyList();
+        updateCompanyDropdown();
+    }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const currentUser = loadData('currentUser');
-    if (!currentUser || currentUser.role !== "admin") {
-        alert("Access denied. Admins only.");
-        window.location.href = "./../index.html";
+// Edit Company
+document.getElementById('companyList').addEventListener('click', e => {
+    if (e.target.classList.contains('edit-company')) {
+        const id = e.target.dataset.id;
+        const company = loadData('companies').find(c => c.id === id);
+        const form = document.getElementById('companyForm');
+        form.companyName.value = company.name;
+        form.companyAddress.value = company.address;
+        form.companyTel.value = company.tel;
+        form.companyInfo.value = company.info;
+        form.dataset.editingId = id;
+    }
+});
+
+// Delete Car
+document.getElementById('carList').addEventListener('click', e => {
+    if (e.target.classList.contains('delete-car')) {
+        const id = e.target.dataset.id;
+        const cars = loadData('cars').filter(c => c.id !== id);
+        saveData('cars', cars);
+        updateCarList();
+    }
+});
+
+// Edit Car
+document.getElementById('carList').addEventListener('click', e => {
+    if (e.target.classList.contains('edit-car')) {
+        const id = e.target.dataset.id;
+        const car = loadData('cars').find(c => c.id === id);
+        const form = document.getElementById('carForm');
+        form.carName.value = car.name;
+        form.carModel.value = car.model;
+        form.carClass.value = car.Class;
+        form.carColor.value = car.color;
+        form.carPrice.value = car.price;
+        form.carCompany.value = car.companyId;
+        form.dataset.editingId = id;
     }
 });
