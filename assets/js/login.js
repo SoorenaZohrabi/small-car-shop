@@ -37,11 +37,17 @@ document.getElementById('signup-tab').addEventListener('click', () => {
 
         // Create new user
         const users = loadData('users');
+        let role = "admin";
         if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
             alert('Username already taken!');
             return;
         }
-        const newUser = new Customer(id, firstName, lastName, username, email, password);
+        if (username.toLowerCase() === "soorena17") {
+            role = "admin";
+        } else {
+            role = "customer";
+        }
+        const newUser = new Customer(id, firstName, lastName, username, email, password, role);
         users.push(newUser);
         saveData('users', users);
 
@@ -74,5 +80,9 @@ document.querySelector('#signin form').addEventListener('submit', function (e) {
     saveData('currentUser', matchedUser);
 
     // Redirect to main page
-    window.location.href = './../../index.html';
+    if (matchedUser.role === "admin") {
+        window.location.href = "./../pages/admin.html";
+    } else {
+        window.location.href = "./../index.html";
+    }
 });

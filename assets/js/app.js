@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hide login button
         document.querySelector('.login-btn')?.classList.add('d-none');
+
+        // ✅ Show admin link if user is admin
+        if (currentUser.role === "admin") {
+            document.querySelector('.admin-link')?.classList.remove('d-none');
+        }
     }
 });
 
