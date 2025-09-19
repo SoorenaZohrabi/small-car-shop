@@ -9,14 +9,6 @@
   color: rgb(255, 232, 219);
 }
 
-.user-profile .profile-img {
-  width: 32px;
-  height: 32px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: 2px solid white;
-}
-
 .hero-section {
   background-color: rgb(255, 232, 219);
   height: 100vh;
@@ -40,14 +32,6 @@
   color: rgb(255, 232, 219);
 }
 
-.electric .card {
-  border-left: 5px solid green;
-}
-
-.gasoline .card {
-  border-left: 5px solid red;
-}
-
 .card {
   border: 1px solid rgb(115, 158, 201);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -56,19 +40,6 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   border-color: rgb(86, 130, 177);
-}
-.card .card-img-top {
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.card .card-title {
-  color: rgb(86, 130, 177);
-  font-weight: 600;
-}
-.card .card-text {
-  color: rgb(0, 0, 0);
-  font-size: 0.95rem;
 }
 .card .btn-outline-primary {
   border-color: rgb(86, 130, 177);
@@ -96,6 +67,62 @@ input:focus {
   color: rgb(255, 232, 219);
 }
 
+.company-form {
+  background-color: rgb(255, 241.775, 234.3);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(86, 130, 177, 0.1);
+}
+.company-form .form-label {
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+}
+.company-form .form-control {
+  border: 1px solid rgb(86, 130, 177);
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+.company-form .form-control:focus {
+  border-color: rgb(115, 158, 201);
+  box-shadow: 0 0 0 0.2rem rgba(115, 158, 201, 0.25);
+}
+.company-form .btn-primary {
+  background-color: rgb(86, 130, 177);
+  border-color: rgb(86, 130, 177);
+}
+.company-form .btn-primary:hover {
+  background-color: rgb(115, 158, 201);
+  border-color: rgb(115, 158, 201);
+}
+
+.car-form {
+  background-color: rgb(255, 241.775, 234.3);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(86, 130, 177, 0.1);
+}
+.car-form .form-label {
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+}
+.car-form .form-control {
+  border: 1px solid rgb(86, 130, 177);
+  background-color: white;
+  color: rgb(0, 0, 0);
+}
+.car-form .form-control:focus {
+  border-color: rgb(115, 158, 201);
+  box-shadow: 0 0 0 0.2rem rgba(115, 158, 201, 0.25);
+}
+.car-form .btn-primary {
+  background-color: rgb(86, 130, 177);
+  border-color: rgb(86, 130, 177);
+}
+.car-form .btn-primary:hover {
+  background-color: rgb(115, 158, 201);
+  border-color: rgb(115, 158, 201);
+}
+
 .site-footer {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 232, 219);
@@ -116,31 +143,20 @@ input:focus {
 .login-page {
   background-color: rgb(255, 232, 219);
 }
-.login-page .auth-tabs {
-  border: 1px solid rgb(115, 158, 201);
-}
-.login-page .auth-tabs .nav-tabs {
-  border-bottom: 1px solid rgb(115, 158, 201);
-}
-.login-page .auth-tabs .nav-tabs .nav-link {
+.login-page .nav-link {
   color: rgb(86, 130, 177);
   font-weight: 500;
 }
-.login-page .auth-tabs .nav-tabs .nav-link.active {
+.login-page .nav-link.active {
   background-color: rgb(86, 130, 177);
   color: white;
 }
-.login-page .auth-tabs .nav-tabs .nav-link:hover {
+.login-page .nav-link:hover {
   color: rgb(115, 158, 201);
 }
-.login-page .auth-tabs label {
+.login-page label {
   color: rgb(86, 130, 177);
   font-weight: 500;
-}
-
-.badge {
-  font-size: 0.85rem;
-  padding: 0.4em 0.6em;
 }
 
 .empty-message {
@@ -148,4 +164,44 @@ input:focus {
   color: rgb(86, 130, 177);
   font-weight: 500;
   margin-top: 2rem;
+}
+
+.btn-outline-primary {
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+  background-color: rgb(86, 130, 177);
+  color: rgb(255, 232, 219);
+}
+
+.nav-tabs {
+  border-bottom: 2px solid rgb(86, 130, 177);
+}
+.nav-tabs .nav-link {
+  color: rgb(86, 130, 177);
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+.nav-tabs .nav-link:hover {
+  color: rgb(115, 158, 201);
+  background-color: rgb(255, 248.2916666667, 244.5);
+}
+.nav-tabs .nav-link.active {
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(86, 130, 177);
+  background-color: rgb(255, 232, 219);
+}
+
+.tab-content {
+  background-color: rgb(255, 232, 219);
+  border: 1px solid rgb(86, 130, 177);
+  border-top: none;
+  padding: 2rem;
+}
+.tab-content h4 {
+  color: rgb(86, 130, 177);
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

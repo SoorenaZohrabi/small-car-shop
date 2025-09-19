@@ -4,6 +4,6 @@ export default class Review {
         this.carId = carId;
         this.rate = rate;
         this.viewpoint = viewpoint;
-        this.timestamp = new Date().toISOString(); // Add this for tracking
+        this.timestamp = new Date().toISOString();
     }
 }

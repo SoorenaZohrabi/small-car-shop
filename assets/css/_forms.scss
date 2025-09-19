@@ -16,3 +16,69 @@ input {
         color: $peach;
     }
 }
+
+.company-form {
+    background-color: lighten($peach, 3%);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba($primary-blue, 0.1);
+
+    .form-label {
+        color: $primary-blue;
+        font-weight: 500;
+    }
+
+    .form-control {
+        border: 1px solid $primary-blue;
+        background-color: white;
+        color: $black;
+
+        &:focus {
+            border-color: $secondary-blue;
+            box-shadow: 0 0 0 0.2rem rgba($secondary-blue, 0.25);
+        }
+    }
+
+    .btn-primary {
+        background-color: $primary-blue;
+        border-color: $primary-blue;
+
+        &:hover {
+            background-color: $secondary-blue;
+            border-color: $secondary-blue;
+        }
+    }
+}
+
+.car-form {
+    background-color: lighten($peach, 3%);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba($primary-blue, 0.1);
+
+    .form-label {
+        color: $primary-blue;
+        font-weight: 500;
+    }
+
+    .form-control {
+        border: 1px solid $primary-blue;
+        background-color: white;
+        color: $black;
+
+        &:focus {
+            border-color: $secondary-blue;
+            box-shadow: 0 0 0 0.2rem rgba($secondary-blue, 0.25);
+        }
+    }
+
+    .btn-primary {
+        background-color: $primary-blue;
+        border-color: $primary-blue;
+
+        &:hover {
+            background-color: $secondary-blue;
+            border-color: $secondary-blue;
+        }
+    }
+}

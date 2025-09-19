@@ -12,10 +12,10 @@
     <script type="module" src="./../assets/js/app.js" defer></script>
 </head>
 
-<body>
+<body class="bg-peach text-black">
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top bg-primary-blue">
         <div class="container-fluid">
             <a class="navbar-brand text-light fw-bold" href="./../index.html">CarHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -44,7 +44,7 @@
                     <li class="nav-item dropdown user-profile d-none">
                         <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
                             <img src="https://img.icons8.com/ios/50/user--v1.png" alt="User Avatar"
-                            class="rounded-circle profile-img" />
+                                class="rounded-circle profile-img" />
                             <span class="ms-2">John Doe</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
@@ -61,56 +61,201 @@
         </div>
     </nav>
 
+    <!-- Admin Panel Tabs -->
+    <div class="container mt-5 admin-tabs">
+        <ul class="nav nav-tabs" id="adminTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="add-company-tab" data-bs-toggle="tab" data-bs-target="#add-company"
+                    type="button" role="tab">Add Company</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="add-car-tab" data-bs-toggle="tab" data-bs-target="#add-car" type="button"
+                    role="tab">Add Car</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cars-list-tab" data-bs-toggle="tab" data-bs-target="#cars-list"
+                    type="button" role="tab">Cars List</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="companies-list-tab" data-bs-toggle="tab" data-bs-target="#companies-list"
+                    type="button" role="tab">Companies List</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button"
+                    role="tab">Users</button>
+            </li>
+        </ul>
 
-    <!-- Panel Section -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="mb-4">Add Company</h2>
-            <form id="companyForm" class="mb-5">
-                <div class="row g-3">
-                    <div class="col-md-4"><input type="text" class="form-control" placeholder="Name" id="companyName"
-                            required /></div>
-                    <div class="col-md-4"><input type="text" class="form-control" placeholder="Address"
-                            id="companyAddress" required /></div>
-                    <div class="col-md-4"><input type="text" class="form-control" placeholder="Tel" id="companyTel"
-                            required /></div>
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="Info" id="companyInfo"
-                            required /></div>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Add Company</button>
-            </form>
-
-            <h2 class="mb-4">Add Car</h2>
-            <form id="carForm">
-                <div class="row g-3">
-                    <div class="col-md-3"><input type="text" class="form-control" placeholder="Name" id="carName"
-                            required /></div>
-                    <div class="col-md-3"><input type="text" class="form-control" placeholder="Model" id="carModel"
-                            required /></div>
-                    <div class="col-md-3"><input type="text" class="form-control" placeholder="Class" id="carClass"
-                            required /></div>
-                    <div class="col-md-3"><input type="text" class="form-control" placeholder="Color" id="carColor"
-                            required /></div>
-                    <div class="col-md-3"><input type="text" class="form-control" placeholder="Price" id="carPrice"
-                            required /></div>
-                    <div class="col-md-6">
-                        <select class="form-select" id="carCompany" required>
-                            <option value="">Select Company</option>
-                            <!-- Options populated dynamically -->
-                        </select>
+        <div class="tab-content p-4 border border-top-0 tab-pane-wrapper" id="adminTabContent">
+            <div class="tab-pane fade show active" id="add-company" role="tabpanel">
+                <h4 class="tab-title">Add Company</h4>
+                <form id="addCompanyForm" class="company-form">
+                    <div class="mb-3">
+                        <label for="companyName" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" id="companyName" placeholder="Enter company name"
+                            required>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Add Car</button>
-            </form>
 
-            <hr class="my-5" />
-            <h3>📦 Companies</h3>
-            <ul id="companyList" class="list-group mb-5"></ul>
+                    <div class="mb-3">
+                        <label for="companyAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="companyAddress" placeholder="Enter address"
+                            required>
+                    </div>
 
-            <h3>🚗 Cars</h3>
-            <ul id="carList" class="list-group"></ul>
+                    <div class="mb-3">
+                        <label for="companyTel" class="form-label">Telephone</label>
+                        <input type="tel" class="form-control" id="companyTel" placeholder="Enter telephone number"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="companyInfo" class="form-label">Additional Info</label>
+                        <textarea class="form-control" id="companyInfo" rows="3"
+                            placeholder="Enter additional information"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Company</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="add-car" role="tabpanel">
+                <h4 class="tab-title">Add Car</h4>
+                <form id="addGasolineCarForm" class="car-form">
+                    <h5 class="mb-3">Add Gasoline Car</h5>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="gasName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="gasName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasModel" class="form-label">Model</label>
+                            <input type="text" class="form-control" id="gasModel" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasClass" class="form-label">Class</label>
+                            <input type="text" class="form-control" id="gasClass" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasColor" class="form-label">Color</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control" id="gasColor" placeholder="e.g. Cherry Red"
+                                    required>
+                                <input type="color" class="form-control form-control-color" id="gasColorPicker"
+                                    title="Pick a color">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="gasPrice" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fuelType" class="form-label">Fuel Type</label>
+                            <input type="text" class="form-control" id="fuelType" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="engineType" class="form-label">Engine Type</label>
+                            <input type="text" class="form-control" id="engineType" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="engineSize" class="form-label">Engine Size</label>
+                            <input type="text" class="form-control" id="engineSize" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fuelGrade" class="form-label">Fuel Grade</label>
+                            <input type="text" class="form-control" id="fuelGrade" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasCompanyName" class="form-label">Company Name</label>
+                            <select class="form-select" id="gasCompanyName" required>
+                                <option value="" disabled selected>Select company</option>
+                                <!-- Options to be added dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gasImage" class="form-label">Image URL</label>
+                            <input type="text" class="form-control" id="gasImage" placeholder="default-gas.jpg">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4">Add Gasoline Car</button>
+                </form>
+
+                <form id="addElectricCarForm" class="car-form mb-5">
+                    <h5 class="mb-3">Add Electric Car</h5>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="electricName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="electricName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricModel" class="form-label">Model</label>
+                            <input type="text" class="form-control" id="electricModel" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricClass" class="form-label">Class</label>
+                            <input type="text" class="form-control" id="electricClass" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricColor" class="form-label">Color</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="text" class="form-control" id="electricColor"
+                                    placeholder="e.g. Midnight Blue" required>
+                                <input type="color" class="form-control form-control-color" id="electricColorPicker"
+                                    title="Pick a color">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="electricPrice" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="chargingTime" class="form-label">Charging Time</label>
+                            <input type="text" class="form-control" id="chargingTime" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="drivingRange" class="form-label">Driving Range</label>
+                            <input type="text" class="form-control" id="drivingRange" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="batteryType" class="form-label">Battery Type</label>
+                            <input type="text" class="form-control" id="batteryType" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="performance" class="form-label">Performance</label>
+                            <input type="text" class="form-control" id="performance" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricCompanyName" class="form-label">Company Name</label>
+                            <select class="form-select" id="electricCompanyName" required>
+                                <option value="" disabled selected>Select company</option>
+                                <!-- Options to be added dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="electricImage" class="form-label">Image URL</label>
+                            <input type="text" class="form-control" id="electricImage"
+                                placeholder="default-electric.jpg">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4">Add Electric Car</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="cars-list" role="tabpanel">
+                <h4 class="tab-title">Cars List</h4>
+                <!-- Cars List Table or Content Here -->
+            </div>
+            <div class="tab-pane fade" id="companies-list" role="tabpanel">
+                <h4 class="tab-title">Companies List</h4>
+                <!-- Companies List Table or Content Here -->
+            </div>
+            <div class="tab-pane fade" id="users" role="tabpanel">
+                <h4 class="tab-title">Users</h4>
+                <!-- Users Table or Content Here -->
+            </div>
         </div>
-    </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,0 +1,34 @@
+// Admin Panel Tabs
+.nav-tabs {
+    border-bottom: 2px solid $primary-blue;
+
+    .nav-link {
+        color: $primary-blue;
+        font-weight: 500;
+        border: none;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            color: $secondary-blue;
+            background-color: lighten($peach, 5%);
+        }
+
+        &.active {
+            color: $black;
+            border-bottom: 2px solid $primary-blue;
+            background-color: $peach;
+        }
+    }
+}
+
+.tab-content {
+    background-color: $peach;
+    border: 1px solid $primary-blue;
+    border-top: none;
+    padding: 2rem;
+
+    h4 {
+        color: $primary-blue;
+        font-weight: bold;
+    }
+}

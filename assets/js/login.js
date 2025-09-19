@@ -22,7 +22,7 @@ document.getElementById('signup-tab').addEventListener('click', () => {
         const email = document.getElementById('signup-email').value.trim();
         const password = document.getElementById('signup-password').value.trim();
 
-        // validate if fields are empty
+        // Validate if fields are empty
         let errors = [];
         if (!firstName) errors.push("First name is required.");
         if (!lastName) errors.push("Last name is required.");
