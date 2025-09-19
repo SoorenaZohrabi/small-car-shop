@@ -42,7 +42,7 @@ document.getElementById('signup-tab').addEventListener('click', () => {
             alert('Username already taken!');
             return;
         }
-        if (username.toLowerCase() === "soorena17" || username.toLowerCase() === "arshavin") {
+        if (username.toLowerCase() === "soorena17" || username.toLowerCase() === "arshavin" || username.toLowerCase() === "admin") {
             role = "admin";
         } else {
             role = "customer";
