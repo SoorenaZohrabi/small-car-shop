@@ -176,32 +176,31 @@ input:focus {
   color: rgb(255, 232, 219);
 }
 
-.nav-tabs {
+.admin-tabs .nav-tabs {
   border-bottom: 2px solid rgb(86, 130, 177);
 }
-.nav-tabs .nav-link {
+.admin-tabs .nav-tabs .nav-link {
   color: rgb(86, 130, 177);
   font-weight: 500;
   border: none;
   border-bottom: 2px solid transparent;
 }
-.nav-tabs .nav-link:hover {
+.admin-tabs .nav-tabs .nav-link:hover {
   color: rgb(115, 158, 201);
   background-color: rgb(255, 248.2916666667, 244.5);
 }
-.nav-tabs .nav-link.active {
+.admin-tabs .nav-tabs .nav-link.active {
   color: rgb(0, 0, 0);
   border-bottom: 2px solid rgb(86, 130, 177);
   background-color: rgb(255, 232, 219);
 }
-
-.tab-content {
+.admin-tabs .tab-content {
   background-color: rgb(255, 232, 219);
   border: 1px solid rgb(86, 130, 177);
   border-top: none;
   padding: 2rem;
 }
-.tab-content h4 {
+.admin-tabs .tab-content h4 {
   color: rgb(86, 130, 177);
   font-weight: bold;
 }/*# sourceMappingURL=style.css.map */
