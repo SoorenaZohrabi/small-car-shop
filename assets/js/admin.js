@@ -517,4 +517,5 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCarsList();
         }
     });
+    renderCarsList();
 });
