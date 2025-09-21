@@ -1,20 +1,16 @@
-.card {
+.company-card {
+    background-color: $peach;
     border: 1px solid $secondary-blue;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: $black;
+    transition: transform 0.2s ease;
+}
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        border-color: $primary-blue;
-    }
+.company-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
 
-    .btn-outline-primary {
-        border-color: $primary-blue;
-        color: $primary-blue;
-
-        &:hover {
-            background-color: $primary-blue;
-            color: $peach;
-        }
-    }
+.company-card .card-header {
+    background-color: $primary-blue;
+    color: white;
 }

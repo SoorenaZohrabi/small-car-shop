@@ -1,25 +1,33 @@
-import { loadData } from './storage.js';
+import { saveData, loadData } from './storage.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const companies = loadData('companies');
-    const container = document.querySelector('.company-directory .row');
+function renderCompanies() {
+    const companies = loadData('companies'); // assumes companies are saved under this key
+    const container = document.getElementById('company-list');
+    container.innerHTML = '';
 
-    if (companies.length === 0) {
-        container.innerHTML = `<p class="empty-message">No companies available.</p>`;
-        return;
-    }
+    companies.forEach(company => {
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
 
-    container.innerHTML = companies.map(c => `
-        <div class="col-md-4">
-            <div class="card company-card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">${c.name}</h5>
-                    <p class="card-text"><strong>Address:</strong> ${c.address}</p>
-                    <p class="card-text"><strong>Tel:</strong> ${c.tel}</p>
-                    <p class="card-text">${c.info}</p>
-                    <a href="cars.html?companyId=${c.id}" class="btn btn-outline-primary">View Cars</a>
-                </div>
-            </div>
-        </div>
-    `).join('');
-});
+        const card = document.createElement('div');
+        card.className = 'card company-card h-100';
+        card.onclick = () => {
+            saveData('selectedCompany', company);
+            window.location.href = './../pages/companyCars.html';
+        };
+
+        card.innerHTML = `
+      <div class="card-header">${company.name}</div>
+      <div class="card-body">
+        <p><strong>Address:</strong> ${company.address}</p>
+        <p><strong>Tel:</strong> ${company.tel}</p>
+        <p>${company.info}</p>
+      </div>
+    `;
+
+        col.appendChild(card);
+        container.appendChild(col);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', renderCompanies);

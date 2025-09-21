@@ -1,13 +1,6 @@
 import Customer from './ntt/Customer.js';
 import { saveData, loadData } from './storage.js';
-
-function generateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-        const r = Math.random() * 16 | 0;
-        const v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
+import { generateUUID } from "./generateUUID.js";
 
 // for sign up
 document.getElementById('signup-tab').addEventListener('click', () => {

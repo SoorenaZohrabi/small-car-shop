@@ -8,3 +8,23 @@
         color: $peach;
     }
 }
+
+.btn-primary {
+    background-color: $primary-blue;
+    border: none;
+
+    &:hover {
+        background-color: $secondary-blue;
+        color: $peach;
+    }
+}
+
+.login-btn {
+    .nav-link {
+        font-weight: 500;
+
+        &:hover {
+            color: $peach;
+        }
+    }
+}

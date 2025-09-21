@@ -7,16 +7,6 @@ input {
     }
 }
 
-.btn-primary {
-    background-color: $primary-blue;
-    border: none;
-
-    &:hover {
-        background-color: $secondary-blue;
-        color: $peach;
-    }
-}
-
 .company-form {
     background-color: lighten($peach, 3%);
     padding: 1.5rem;
