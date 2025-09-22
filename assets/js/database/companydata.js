@@ -1,17 +1,14 @@
 import Company from './../ntt/Company.js';
-import { saveData, loadData } from './../storage.js';
+import { saveData } from './../storage.js';
 import { generateUUID } from "./../generateUUID.js";
 
 function initializeCompanies() {
-    const existing = loadData('companies');
-    if (existing.length > 0) return; // Avoid overwriting if already saved
-
     const companies = [
-        new Company(generateUUID(), "BlueDrive Motors", "123 Innovation Blvd, San Francisco, CA", "+1 (415) 555-0198", "Specializes in electric vehicle fleets."),
-        new Company(generateUUID(), "Skyline Rentals", "456 Metro Ave, New York, NY", "+1 (212) 555-0456", "Premium car rentals for travelers."),
-        new Company(generateUUID(), "EcoFleet Logistics", "789 Greenway Rd, Austin, TX", "+1 (512) 555-0789", "Eco-friendly delivery vehicles."),
-        new Company(generateUUID(), "UrbanMotion", "321 City Center Dr, Chicago, IL", "+1 (312) 555-0345", "Compact and hybrid car options."),
-        new Company(generateUUID(), "GlobalAuto Partners", "654 International Pkwy, Miami, FL", "+1 (305) 555-0623", "Commercial vehicles and fleet services.")
+        new Company(generateUUID(), "Tesla", "3500 Deer Creek Road, Palo Alto, CA", "+1 (650) 681-5000", "Innovative electric vehicles and autonomous driving."),
+        new Company(generateUUID(), "Toyota", "6565 Headquarters Dr, Plano, TX", "+1 (469) 292-4000", "Reliable and fuel-efficient vehicles for all lifestyles."),
+        new Company(generateUUID(), "Mercedes-Benz", "1 Mercedes-Benz Dr, Sandy Springs, GA", "+1 (770) 705-0600", "Luxury vehicles with cutting-edge technology."),
+        new Company(generateUUID(), "Porsche", "1 Porsche Dr, Atlanta, GA", "+1 (800) 767-7243", "High-performance sports cars and luxury SUVs."),
+        new Company(generateUUID(), "BMW", "300 Chestnut Ridge Rd, Woodcliff Lake, NJ", "+1 (800) 831-1117", "Premium driving experience with German engineering.")
     ];
 
     saveData('companies', companies);
