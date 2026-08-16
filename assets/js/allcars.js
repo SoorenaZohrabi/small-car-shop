@@ -82,7 +82,6 @@ export function loadAndRenderCars(carsCount, limitedCars) {
                 car.fuelType, car.engineType, car.engineSize, car.fuelGrade, car.image
             );
         }
-        console.log(car.id);
         renderCarCard(carInstance);
     });
 }

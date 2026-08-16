@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('currentUser');
 
             // Redirect to homepage or reload
-            window.location.href = './../index.html'; // or use window.location.reload();
+            window.location.href = './../index.html';
         });
     }
 });
