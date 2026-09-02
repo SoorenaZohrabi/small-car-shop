@@ -1,8 +1,11 @@
-import { saveData, loadData } from './storage.js';
+import { saveData, loadData } from '../storage.js';
 
-function renderCompanies() {
-    const companies = loadData('companies'); // assumes companies are saved under this key
+export function renderCompanies() {
     const container = document.getElementById('company-list');
+    if (!container) {
+        return;
+    }
+    const companies = loadData('companies');
     container.innerHTML = '';
 
     companies.forEach(company => {
@@ -13,7 +16,7 @@ function renderCompanies() {
         card.className = 'card company-card h-100';
         card.onclick = () => {
             saveData('selectedCompany', company);
-            window.location.href = './../pages/companyCars.html';
+            window.location.href = window.location.href = '/pages/companyCars.html';
         };
 
         card.innerHTML = `
@@ -29,5 +32,3 @@ function renderCompanies() {
         container.appendChild(col);
     });
 }
-
-document.addEventListener('DOMContentLoaded', renderCompanies);

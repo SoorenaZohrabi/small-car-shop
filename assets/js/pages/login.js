@@ -1,6 +1,6 @@
-import Customer from './ntt/Customer.js';
-import { saveData, loadData } from './storage.js';
-import { generateUUID } from "./generateUUID.js";
+import Customer from './../ntt/Customer.js';
+import { saveData, loadData } from './../storage.js';
+import { generateUUID } from "./../generateUUID.js";
 
 // for sign up
 document.getElementById('signup-tab').addEventListener('click', () => {
@@ -30,16 +30,15 @@ document.getElementById('signup-tab').addEventListener('click', () => {
 
         // Create new user
         const users = loadData('users');
-        let role = "admin";
+        let role = "customer";
         if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
             alert('Username already taken!');
             return;
         }
-        if (username.toLowerCase() === "soorena17" || username.toLowerCase() === "arshavin" || username.toLowerCase() === "admin") {
+        if (username.toLowerCase() === "soorena" || username.toLowerCase() === "admin") {
             role = "admin";
-        } else {
-            role = "customer";
         }
+        
         const newUser = new Customer(id, firstName, lastName, username, email, password, role);
         users.push(newUser);
         saveData('users', users);

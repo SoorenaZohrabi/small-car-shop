@@ -1,8 +1,8 @@
-import Company from './../ntt/Company.js';
+import Company from '../models/Company.js';
 import { saveData } from './../storage.js';
 import { generateUUID } from "./../generateUUID.js";
 
-function initializeCompanies() {
+export function initializeCompanies() {
     const companies = [
         new Company(generateUUID(), "Tesla", "3500 Deer Creek Road, Palo Alto, CA", "+1 (650) 681-5000", "Innovative electric vehicles and autonomous driving."),
         new Company(generateUUID(), "Toyota", "6565 Headquarters Dr, Plano, TX", "+1 (469) 292-4000", "Reliable and fuel-efficient vehicles for all lifestyles."),
@@ -13,5 +13,3 @@ function initializeCompanies() {
 
     saveData('companies', companies);
 }
-
-document.addEventListener('DOMContentLoaded', initializeCompanies);

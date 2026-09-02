@@ -1,5 +1,5 @@
-import ElectricCar from "./../ntt/ElectricCar.js";
-import GasolineCar from "./../ntt/GasolineCar.js";
+import ElectricCar from "../models/ElectricCar.js";
+import GasolineCar from "../models/GasolineCar.js";
 import { saveData , loadData } from "./../storage.js";
 import { generateUUID } from "./../generateUUID.js";
 
@@ -13,7 +13,7 @@ function assignCarsToCompanies(carList) {
     saveData('companies', companies);
 }
 
-function initializeCars() {
+export function initializeCars() {
     const carList = [
         // 🚘 Tesla Electric Cars
         new ElectricCar(generateUUID(), "Tesla", "Model S", "Sedan", "Black", 79999, 1.5, 650, "Lithium-ion", "0-100 in 3.2s", "https://www.tesla.com/sites/default/files/modelsx-new/social/model-s-hero-social.jpg"),
@@ -53,5 +53,3 @@ function initializeCars() {
     assignCarsToCompanies(carList)
     saveData('cars', carList);
 }
-
-document.addEventListener('DOMContentLoaded', initializeCars);

@@ -1,6 +1,6 @@
-import ElectricCar from "./ntt/ElectricCar.js";
-import GasolineCar from "./ntt/GasolineCar.js";
-import { loadData, saveData } from "./storage.js";
+import ElectricCar from "../models/ElectricCar.js";
+import GasolineCar from "../models/GasolineCar.js";
+import { loadData, saveData } from "../storage.js";
 
 const allCarsContainer = document.getElementById("allCarsContainer");
 const storageKey = "cars";
@@ -68,7 +68,7 @@ export function loadAndRenderCars(carsCount, limitedCars) {
         limitedCars = rawCompany.cars;
         console.log(limitedCars);
     }
-    
+
     limitedCars.forEach(car => {
         let carInstance;
         if (car.hasOwnProperty("chargingTime")) {
@@ -83,11 +83,5 @@ export function loadAndRenderCars(carsCount, limitedCars) {
             );
         }
         renderCarCard(carInstance);
-    });
-}
-
-if (window.location.pathname.includes("allcars.html")) {
-    document.addEventListener("DOMContentLoaded", () => {
-        loadAndRenderCars(0);
     });
 }
