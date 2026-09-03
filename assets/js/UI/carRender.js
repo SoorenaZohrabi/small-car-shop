@@ -1,6 +1,7 @@
-import ElectricCar from "../models/ElectricCar.js";
-import GasolineCar from "../models/GasolineCar.js";
-import { loadData, saveData } from "../storage.js";
+import { getCompanyCars } from "./../services/companyCarService.js";
+import ElectricCar from "./../models/ElectricCar.js";
+import GasolineCar from "./../models/GasolineCar.js";
+import { loadData, saveData } from "./../storage/storage.js";
 
 const allCarsContainer = document.getElementById("allCarsContainer");
 const storageKey = "cars";
@@ -65,20 +66,19 @@ export function loadAndRenderCars(carsCount, limitedCars) {
         limitedCars = rawCars;
     } else {
         const rawCompany = loadData('selectedCompany');
-        limitedCars = rawCompany.cars;
-        console.log(limitedCars);
+        limitedCars = getCompanyCars(rawCompany);
     }
 
     limitedCars.forEach(car => {
         let carInstance;
         if (car.hasOwnProperty("chargingTime")) {
             carInstance = new ElectricCar(
-                car.id, car.name, car.model, car.Class, car.color, car.price,
+                car.id, car.name, car.model, car.Class, car.color, car.price, car.company,
                 car.chargingTime, car.drivingRange, car.batteryType, car.performance, car.image
             );
         } else {
             carInstance = new GasolineCar(
-                car.id, car.name, car.model, car.Class, car.color, car.price,
+                car.id, car.name, car.model, car.Class, car.color, car.price, car.company,
                 car.fuelType, car.engineType, car.engineSize, car.fuelGrade, car.image
             );
         }

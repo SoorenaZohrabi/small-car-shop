@@ -1,7 +1,9 @@
-import { renderCompaniesList, updateCompanyDropdowns } from "./companyRender.js";
-import { generateUUID } from "../utils/generateUUID.js";
-import Company from "../models/Company.js";
-import { loadData, saveData } from "../storage/storage.js";
+import { renderCompaniesList, updateCompanyDropdowns } from "./../UI/adminCompanyRender.js";
+import { generateUUID } from "./../utils/generateUUID.js";
+import Company from "./../models/Company.js";
+import GasolineCar from "./../models/GasolineCar.js";
+import ElectricCar from "./../models/ElectricCar.js";
+import { loadData, saveData } from "./../storage/storage.js";
 
 const addCompanyForm = document.getElementById('addCompanyForm');
 const gasCompanySelect = document.getElementById('gasCompanyName');
@@ -11,16 +13,8 @@ const addElectricCarForm = document.getElementById('addElectricCarForm');
 
 export function renderCarsList() {
     const carsContainer = document.getElementById('cars-list');
-    const companies = loadData('companies');
+    const allCars = loadData('cars');
     carsContainer.innerHTML = '';
-
-    const allCars = companies.flatMap(company =>
-        company.cars.map(car => ({
-            ...car,
-            companyId: company.id,
-            companyName: company.name
-        }))
-    );
 
     if (allCars.length === 0) {
         carsContainer.innerHTML = '<p>No cars added yet.</p>';
@@ -45,14 +39,14 @@ export function renderCarsList() {
             </thead>
             <tbody>
                 ${allCars.map(car => `
-                    <tr data-id="${car.id}" data-company="${car.companyId}">
+                    <tr data-id="${car.id}" >
                         <td>${car.type}</td>
                         <td><input type="text" class="form-control form-name" value="${car.name}"></td>
                         <td><input type="text" class="form-control form-model" value="${car.model}"></td>
-                        <td><input type="text" class="form-control form-class" value="${car.class}"></td>
+                        <td><input type="text" class="form-control form-class" value="${car.Class}"></td>
                         <td><input type="text" class="form-control form-color" value="${car.color}"></td>
                         <td><input type="number" class="form-control form-price" value="${car.price}"></td>
-                        <td>${car.companyName}</td>
+                        <td>${car.company}</td>
                         <td>
                             <button class="btn btn-sm btn-success btn-save">Save</button>
                             <button class="btn btn-sm btn-danger btn-delete">Delete</button>
@@ -69,18 +63,17 @@ export function renderCarsList() {
         btn.addEventListener('click', () => {
             const row = btn.closest('tr');
             const carId = row.dataset.id;
-            const companyId = row.dataset.company;
-            const companies = loadData('companies');
-            const company = companies.find(c => c.id === companyId);
-            const car = company?.cars.find(c => c.id === carId);
+            const cars = loadData('cars');
+            const car = cars.find(c => c.id === carId);
+
             if (car) {
                 car.name = row.querySelector('.form-name').value.trim();
                 car.model = row.querySelector('.form-model').value.trim();
-                car.class = row.querySelector('.form-class').value.trim();
+                car.Class = row.querySelector('.form-class').value.trim();
                 car.color = row.querySelector('.form-color').value.trim();
                 car.price = parseFloat(row.querySelector('.form-price').value);
-                saveData('companies', companies);
-                renderCompaniesList(companies);
+                saveData('cars', cars);
+                renderCarsList();
                 alert('Car updated!');
             }
         });
@@ -91,13 +84,11 @@ export function renderCarsList() {
         btn.addEventListener('click', () => {
             const row = btn.closest('tr');
             const carId = row.dataset.id;
-            const companyId = row.dataset.company;
-            const companies = loadData('companies');
-            const company = companies.find(c => c.id === companyId);
-            if (company) {
-                company.cars = company.cars.filter(c => c.id !== carId);
-                saveData('companies', companies);
-                renderCompaniesList(companies);
+            let cars = loadData('cars');
+            const car = cars.find(c => c.id === carId);
+            if (car) {
+                cars = cars.filter(c => c.id !== carId);
+                saveData('cars', cars)
                 renderCarsList();
                 alert('Car deleted!');
             }
@@ -138,61 +129,59 @@ addCompanyForm.addEventListener('submit', function (e) {
 addGasolineCarForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const car = {
-        id: generateUUID(),
-        type: 'gasoline',
-        name: document.getElementById('gasName').value.trim(),
-        model: document.getElementById('gasModel').value.trim(),
-        class: document.getElementById('gasClass').value.trim(),
-        color: document.getElementById('gasColor').value.trim(),
-        price: parseFloat(document.getElementById('gasPrice').value),
-        fuelType: document.getElementById('fuelType').value.trim(),
-        engineType: document.getElementById('engineType').value.trim(),
-        engineSize: document.getElementById('engineSize').value.trim(),
-        fuelGrade: document.getElementById('fuelGrade').value.trim(),
-        image: document.getElementById('gasImage').value.trim() || 'default-gas.jpg'
-    };
+    const newCar = new GasolineCar(
+        generateUUID(),
+        document.getElementById('gasName').value.trim(),
+        document.getElementById('gasModel').value.trim(),
+        document.getElementById('gasClass').value.trim(),
+        document.getElementById('gasColor').value.trim(),
+        parseFloat(document.getElementById('gasPrice').value),
+        gasCompanySelect.value.trim(),
+        document.getElementById('fuelType').value.trim(),
+        document.getElementById('engineType').value.trim(),
+        document.getElementById('engineSize').value.trim(),
+        document.getElementById('fuelGrade').value.trim(),
+        document.getElementById('gasImage').value.trim() || 'default-gas.jpg'
+    );
 
-    const companyId = gasCompanySelect.value;
     const companies = loadData('companies');
-    const company = companies.find(c => c.id === companyId);
-    if (company) {
-        company.cars.push(car);
-        saveData('companies', companies);
+    const cars = loadData('cars');
+    if (newCar) {
+        cars.push(newCar);
+        saveData('cars', cars)
         addGasolineCarForm.reset();
         alert('Gasoline car added!');
-        renderCompaniesList(companies);
         renderCarsList();
+        renderCompaniesList(companies);
     }
 });
 
 addElectricCarForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const car = {
-        id: generateUUID(),
-        type: 'electric',
-        name: document.getElementById('electricName').value.trim(),
-        model: document.getElementById('electricModel').value.trim(),
-        class: document.getElementById('electricClass').value.trim(),
-        color: document.getElementById('electricColor').value.trim(),
-        price: parseFloat(document.getElementById('electricPrice').value),
-        chargingTime: document.getElementById('chargingTime').value.trim(),
-        drivingRange: document.getElementById('drivingRange').value.trim(),
-        batteryType: document.getElementById('batteryType').value.trim(),
-        performance: document.getElementById('performance').value.trim(),
-        image: document.getElementById('electricImage').value.trim() || 'default-electric.jpg'
-    };
+    const newCar = new ElectricCar(
+        generateUUID(),
+        document.getElementById('electricName').value.trim(),
+        document.getElementById('electricModel').value.trim(),
+        document.getElementById('electricClass').value.trim(),
+        document.getElementById('electricColor').value.trim(),
+        parseFloat(document.getElementById('electricPrice').value),
+        electricCompanySelect.value.trim(),
+        document.getElementById('chargingTime').value.trim(),
+        document.getElementById('drivingRange').value.trim(),
+        document.getElementById('batteryType').value.trim(),
+        document.getElementById('performance').value.trim(),
+        document.getElementById('electricImage').value.trim() || 'default-electric.jpg'
+    );
 
-    const companyId = electricCompanySelect.value;
     const companies = loadData('companies');
-    const company = companies.find(c => c.id === companyId);
-    if (company) {
-        company.cars.push(car);
-        saveData('companies', companies);
+    const cars = loadData('cars');
+    if (newCar) {
+        cars.push(newCar);
+        saveData('cars', cars);
         addElectricCarForm.reset();
         alert('Electric car added!');
-        renderCompaniesList(companies);
         renderCarsList();
+        renderCompaniesList(companies);
     }
 });

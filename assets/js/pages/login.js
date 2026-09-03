@@ -1,6 +1,6 @@
-import Customer from './../ntt/Customer.js';
-import { saveData, loadData } from './../storage.js';
-import { generateUUID } from "./../generateUUID.js";
+import Customer from './../models/Customer.js';
+import { saveData, loadData } from './../storage/storage.js';
+import { generateUUID } from "./../utils/generateUUID.js";
 
 // for sign up
 document.getElementById('signup-tab').addEventListener('click', () => {

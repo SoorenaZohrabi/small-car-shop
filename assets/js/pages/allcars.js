@@ -1,5 +1,5 @@
-import { initializeUserSession } from "./../auth.js";
-import { loadAndRenderCars } from "./../UI/carUI.js";
+import { initializeUserSession } from "./../controller/auth.js";
+import { loadAndRenderCars } from "./../UI/carRender.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     initializeUserSession();

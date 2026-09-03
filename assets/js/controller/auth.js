@@ -1,4 +1,4 @@
-import { loadData } from '../storage/storage.js';
+import { loadData } from './../storage/storage.js';
 
 export function initializeUserSession() {
     // User state

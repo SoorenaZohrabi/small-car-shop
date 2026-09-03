@@ -1,3 +1,5 @@
+import { getCompanyCars } from "./../services/companyCarService.js";
+
 export function updateCompanyDropdowns(companies) {
     const gasCompanySelect = document.getElementById('gasCompanyName');
     const electricCompanySelect = document.getElementById('electricCompanyName');
@@ -10,7 +12,7 @@ export function updateCompanyDropdowns(companies) {
         companies.forEach(company => {
             const option = document.createElement('option');
 
-            option.value = company.id;
+            option.value = company.name;
             option.textContent = company.name;
 
             select.appendChild(option);
@@ -70,7 +72,7 @@ export function renderCompaniesList(companies) {
                                value="${c.info}">
                     </td>
 
-                    <td>${c.cars.length}</td>
+                    <td>${getCompanyCars(c).length}</td>
 
                     <td>
                         <button class="btn btn-sm btn-success btn-save">

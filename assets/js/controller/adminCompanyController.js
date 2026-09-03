@@ -1,8 +1,8 @@
-import { loadData, saveData } from '../storage/storage.js';
-import Company from '../models/Company.js';
-import { updateCompanyDropdowns, renderCompaniesList } from './companyRender.js';
-import { saveCompany, deleteCompany } from './companyActions.js';
-import { generateUUID } from '../utils/generateUUID.js';
+import { loadData, saveData } from './../storage/storage.js';
+import Company from './../models/Company.js';
+import { updateCompanyDropdowns, renderCompaniesList } from './../UI/adminCompanyRender.js';
+import { saveCompany, deleteCompany } from './../actions/adminCompanyActions.js';
+import { generateUUID } from './../utils/generateUUID.js';
 
 export function initializeCompanyManagement() {
 
@@ -85,8 +85,9 @@ export function initializeCompanyManagement() {
 
         // Delete
         if (e.target.classList.contains('btn-delete')) {
+            const name = row.querySelector('.form-name').value.trim();
 
-            deleteCompany(id);
+            deleteCompany(id, name);
 
             refreshCompanies();
 

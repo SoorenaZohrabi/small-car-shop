@@ -1,6 +1,6 @@
-import { renderUsers } from "./userRender.js";
-import { loadData } from "../storage/storage.js";
-import Customer from "../models/Customer.js";
+import { renderUsers } from "./../UI/userRender.js";
+import { loadData } from "./../storage/storage.js";
+import Customer from "./../models/Customer.js";
 
 export function loadAndRenderUsers() {
     const rawUsers = loadData("users");

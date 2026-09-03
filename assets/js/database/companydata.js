@@ -1,6 +1,6 @@
-import Company from '../models/Company.js';
-import { saveData } from './../storage.js';
-import { generateUUID } from "./../generateUUID.js";
+import Company from './../models/Company.js';
+import { saveData } from './../storage/storage.js';
+import { generateUUID } from "./../utils/generateUUID.js";
 
 export function initializeCompanies() {
     const companies = [

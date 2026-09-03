@@ -1,4 +1,4 @@
-import { saveData, loadData } from '../storage.js';
+import { saveData, loadData } from './../storage/storage.js';
 
 export function renderCompanies() {
     const container = document.getElementById('company-list');

@@ -1,8 +1,8 @@
-import { initializeCompanies } from "../database/companydata.js";
-import { loadData } from "./../storage.js";
-import { loadAndRenderCars } from "./../UI/carUI.js";
-import { renderCompanies } from "./../UI/companyUI.js";
-import { initializeUserSession } from "./../auth.js";
+import { initializeCompanies } from "./../database/companydata.js";
+import { loadData } from "./../storage/storage.js";
+import { loadAndRenderCars } from "./../UI/carRender.js";
+import { renderCompanies } from "./../UI/companyRender.js";
+import { initializeUserSession } from "./../controller/auth.js";
 import { initializeCars } from "./../database/carsdata.js";
 
 document.addEventListener("DOMContentLoaded", () => {
