@@ -1,7 +1,6 @@
 .hero-section {
+    height: 90vh;
     background-color: $peach;
-    height: 100vh;
-    padding: 0 1rem;
 
     h1 {
         color: $black;
@@ -11,16 +10,30 @@
         color: $primary-blue;
     }
 
+
     .hero-btn {
         background-color: $primary-blue;
         border: none;
-        padding: 0.75rem 1.5rem;
-        font-weight: 600;
         color: white;
 
         &:hover {
             background-color: $secondary-blue;
-            color: $peach;
+            color: $black;
+        }
+    }
+
+
+    .scroll-text {
+        color: $primary-blue;
+    }
+
+
+    .scroll-icon {
+        color: $primary-blue;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary-blue;
         }
     }
 }
