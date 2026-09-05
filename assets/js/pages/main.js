@@ -4,6 +4,7 @@ import { loadAndRenderCars } from "./../UI/carRender.js";
 import { renderCompanies } from "./../UI/companyRender.js";
 import { initializeUserSession } from "./../controller/auth.js";
 import { initializeCars } from "./../database/carsdata.js";
+import { renderFooter } from "./../UI/footerRender.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     if (loadData('companies').length === 0 && loadData('cars').length === 0) {
@@ -13,4 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeUserSession();
     loadAndRenderCars(3);
     renderCompanies();
+    renderFooter();
 });

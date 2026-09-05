@@ -1,6 +1,7 @@
 import Customer from './../models/Customer.js';
 import { saveData, loadData } from './../storage/storage.js';
 import { generateUUID } from "./../utils/generateUUID.js";
+import { renderFooter } from "./../UI/footerRender.js";
 
 // for sign up
 document.getElementById('signup-tab').addEventListener('click', () => {
@@ -78,3 +79,5 @@ document.querySelector('#signin form').addEventListener('submit', function (e) {
         window.location.href = "./../index.html";
     }
 });
+
+renderFooter();
