@@ -15,7 +15,6 @@ function renderCarCard(car) {
     const iconType = isElectric
         ? `<i class="bi bi-lightning-charge-fill text-success" title="Electric Car"></i>`
         : `<i class="bi bi-fuel-pump-fill text-danger" title="Gasoline Car"></i>`;
-    const detailsUrl = `car-details.html?id=${car.id}`;
 
     card.innerHTML = `
         <div class="card h-100 shadow-sm">
@@ -36,7 +35,7 @@ function renderCarCard(car) {
                        <p class="card-text"><strong>Engine:</strong> ${car.engineType}, ${car.engineSize}L</p>`
         }
                 <button class="btn btn-primary w-100 mt-2 add-to-shop">Add to Shop</button>
-                <a href="${detailsUrl}" class="btn btn-outline-secondary w-100 mt-2">More</a>
+                <button type="button" class="btn btn-outline-secondary w-100 mt-2" onclick="window.location.href='/pages/car.html'">More</button>
             </div>
             <div class="card-footer bg-peach">
                 <h6>Reviews</h6>
